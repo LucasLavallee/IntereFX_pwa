@@ -35,7 +35,7 @@ export default {
   #transitionChoice {
     height:100%;
     width:100%;
-    background:rgb(0,0,0);
+    background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
     color:white;
     font-family: 'Bangers', cursive;
     color: #FFC700;
