@@ -3,11 +3,22 @@
   <div id="choiceSelector">
     <div class="timerContainer">
       <div class="timer">
-        00 : 30
+        00 : 03
       </div>
     </div>
     <div class="choiceContainer">
-      <Choice :class="[ (choice === id) ? 'selected' :  'classic' ]" @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" :id="'choice' + id" :choice="{id: id, video: 'test.png'}" :key="id" />
+      <Choice 
+        :class="[ (choice.id === id) ? 'selected' :  'classic' ]" 
+        @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" 
+        :id="'choice' + id" 
+        :choice="{
+          id: id, 
+          videoIn:'/video/test.mp4',
+          videoVote: '/video/test.mp4',
+          videoOut: '/video/test.mp4'
+        }" 
+        :key="id">
+      </Choice>
     </div>
   </div>
 </template>
@@ -16,20 +27,26 @@
 import Choice from '../components/Choice'
 import db from '../../base'
 
+import router from '../router/index'
 export default {
   name: 'ChoiceSelector',
-  data: () => {
+  data() {
     return {
-      choice: null,
-      next_choice: null
+      next_choice: null,
+      choice: {
+        id: null
+      }
     }
   },
   components: {
     Choice
   },
   methods: {
-    selectMode(id){
-      this.choice = id
+    selectMode(choice){
+      this.choice = choice
+    },
+    triggerValidationChoice(){
+      router.push({ name: 'transitionChoice', params: {choice: this.choice, transitionIn: false }})
     }
   },
   firebase: {
@@ -40,6 +57,9 @@ export default {
       handler() {
       }
     }
+  },
+  mounted(){
+    setTimeout(this.triggerValidationChoice, 3000);
   }
 
 }
@@ -69,10 +89,14 @@ export default {
     align-items: flex-start;
     justify-content: center;
   }
+  .classic, .selected {
+     transition: all 0.4s ease-in-out;
+  }
   .classic {
     width:50%
   }
   .selected {
+   
     width:150%;
   }
 </style>
