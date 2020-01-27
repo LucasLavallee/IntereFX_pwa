@@ -1,13 +1,24 @@
 <template>
-	<div class="button-container">
+	<div @click="test" class="button-container">
 		<span id="value">Start</span>
 	</div>
 </template>
 
 <script>
+
+import router from '../router/index'
+
 export default {
 	name: 'Button',
+	methods: {
+		test(){
+			router.replace('lobby')
+			console.log({router: this.$router})
+		}
+	}
 }
+
+
 </script>
 
 <style scoped>
@@ -19,7 +30,6 @@ export default {
 		padding: 10px 20px;
 		width: 130px;
 		height: 40px;
-		margin: auto;
 		border-radius: 20px;
 		margin-top: 20px
 	}
