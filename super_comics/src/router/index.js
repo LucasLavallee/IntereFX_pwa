@@ -32,16 +32,6 @@ const router = new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '../views/CinemaMode')
     },
-    {
-      path: '/firstTuto',
-      name: 'firstTuto',
-      component: () => import('../views/FirstTuto')
-    },
-    {
-      path: '/secondTuto',
-      name: 'secondTuto',
-      component: () => import('../views/SecondTuto')
-    },
   ]
 });
 
