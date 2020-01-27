@@ -52,6 +52,5 @@ export default {
     width: 100%;
     justify-content: center;
     align-items: center;
-    border: solid 2px red;
   }
 </style>
