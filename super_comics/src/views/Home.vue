@@ -10,6 +10,8 @@
 <script>
 // @ is an alias to /src
 import Button from '@/components/Button'
+import db from '../../base'
+import router from '../router/index'
 
 export default {
   name: 'home',
@@ -22,6 +24,18 @@ export default {
   //     currentActionId: 0
   //   }
   // },
+  data() {
+    return {
+      next_choice: null,
+      currentActionId: 0
+    }
+  },
+  methods: {
+    test(){
+     router.replace('choiceSelector')
+    console.log({router: this.$router});
+    }
+  },
 
   // firebase: {
   //   next_choice: db.ref('SuperComics/next_choice')
