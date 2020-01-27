@@ -3,11 +3,16 @@
   <div id="choiceSelector">
     <div class="timerContainer">
       <div class="timer">
-        00 : 30
+        00 : 03
       </div>
     </div>
     <div class="choiceContainer">
-      <Choice :class="[ (choice === id) ? 'selected' :  'classic' ]" @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" :id="'choice' + id" :choice="{id: id, video: 'test.png'}" :key="id" />
+      <Choice 
+        :class="[ (choice.id === id) ? 'selected' :  'classic' ]" 
+        @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" 
+        :id="'choice' + id" :choice="{id: id, video: 'test.png'}" 
+        :key="id">
+      </Choice>
     </div>
   </div>
 </template>
@@ -16,19 +21,26 @@
 import Choice from '../components/Choice'
 export default {
   name: 'ChoiceSelector',
-  data: () => {
+  data() {
     return {
-      choice: null
+      choice: {
+        id: null
+      }
     }
   },
   components: {
     Choice
   },
   methods: {
-    selectMode(id){
-      console.log(id)
-      this.choice = id
+    selectMode(choice){
+      this.choice = choice
+    },
+    triggerValidationChoice(){
+
     }
+  },
+  mounted(){
+    setTimeout(this.triggerValidationChoice, 3000);
   }
 
 }

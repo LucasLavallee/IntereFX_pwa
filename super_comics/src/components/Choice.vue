@@ -13,18 +13,14 @@
 </template>
 
 <script>
-
 export default {
   name: 'Choice',
   props:['choice'],
-  components: {
-  },
   methods: {
     selectChoice(){
-      this.$emit('selectChoice', this.choice.id)
+      this.$emit('selectChoice', this.choice)
     }
   }
-
 }
 </script>
 

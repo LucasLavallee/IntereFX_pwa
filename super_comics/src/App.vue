@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-    <ChoiceSelector />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ChoiceSelector from './views/ChoiceSelector'
-
 export default {
   name: 'App',
   components: {
-    ChoiceSelector
   }
 }
 </script>
