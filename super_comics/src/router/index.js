@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home'
 import ChoiceSelector from '../views/ChoiceSelector'
+import Lobby from '../views/Lobby'
 
 Vue.use(Router)
 const router = new Router({
@@ -12,6 +13,11 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/lobby',
+      name: 'lobby',
+      component: Lobby
     },
     {
       path: '/choiceSelector',
@@ -25,7 +31,17 @@ const router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '../views/CinemaMode')
-    }
+    },
+    {
+      path: '/firstTuto',
+      name: 'firstTuto',
+      component: () => import('../views/FirstTuto')
+    },
+    {
+      path: '/secondTuto',
+      name: 'secondTuto',
+      component: () => import('../views/SecondTuto')
+    },
   ]
 });
 
