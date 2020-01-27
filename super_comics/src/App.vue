@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app-portrait">
+      <p>Turn your phone on landscape mode</p>
     </div>
-    <router-view/>
+    <div id="app-landscape">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -15,6 +20,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +28,25 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+/* @media only screen and (orientation:portrait) { */
+
+#app-landscape {
+    display: none
+}
+#app-portrait {
+    display: contents
+}
+
+@media only screen and (orientation:landscape) {
+  #app-landscape {
+    display: contents
+  }
+  #app-portrait {
+    display: none
+  }
+}
+
 
 #nav {
   padding: 30px;
