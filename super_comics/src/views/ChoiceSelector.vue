@@ -58,10 +58,14 @@ export default {
     align-items: flex-start;
     justify-content: center;
   }
+  .classic, .selected {
+     transition: all 0.4s ease-in-out;
+  }
   .classic {
     width:50%
   }
   .selected {
+   
     width:150%;
   }
 </style>

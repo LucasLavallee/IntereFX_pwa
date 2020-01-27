@@ -45,6 +45,7 @@ export default {
   }
   .videoContainer {
     height:85%;
+    transition: all 0.2s ease-in;
   }
   .selected .videoContainer {
     display:flex;
@@ -55,6 +56,7 @@ export default {
     display:none;
   }
   .videoChoice {
+    transition: all 0.2s ease-in;
     height:85%;
   }
   .selected .videoChoice {
@@ -64,4 +66,5 @@ export default {
   .selected .videoContainer {
     height:95%;
   }
+
 </style>
