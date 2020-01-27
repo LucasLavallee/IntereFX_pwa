@@ -14,11 +14,14 @@
 
 <script>
 import Choice from '../components/Choice'
+import db from '../../base'
+
 export default {
   name: 'ChoiceSelector',
   data: () => {
     return {
-      choice: null
+      choice: null,
+      next_choice: null
     }
   },
   components: {
@@ -26,8 +29,16 @@ export default {
   },
   methods: {
     selectMode(id){
-      console.log(id)
       this.choice = id
+    }
+  },
+  firebase: {
+    next_choice: db.ref('SuperComics/next_choice')
+  },
+  watch: {
+    next_choice: {
+      handler() {
+      }
     }
   }
 
