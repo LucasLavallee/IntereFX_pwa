@@ -8,7 +8,7 @@
 	</div>
 	<div class="tuto-container">
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
-			<div v-show="currentState=== 0" class="tuto">
+			<div v-show="currentState=== 0" class="tuto tuto-out">
 			<p>Bienvenue dans cette expérience interactive. 
 			Pendant le visionnage, vous serez amené à prendre des décisions qui influeront sur le cours
 			de l'histoire.
@@ -16,14 +16,14 @@
 			</div>
 		<!-- </transition>	 -->
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
-			<div v-show="currentState=== 1" class="tuto">
+			<div v-show="currentState=== 1" class="tuto tuto-out">
 				<img id="hand" class="logo" src="/img/hand.png"/>
 				<p>Lorsque vous y serez invité, selectionnez l'option de votre choix en cliquant dessus.
 				</p>
 			</div>
 		<!-- </transition> -->
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
-			<div v-show="currentState=== 2" class="tuto">
+			<div v-show="currentState=== 2" class="tuto tuto-out">
 				<img id="speed" class="logo" src="/img/speed.png"/>
 				<p>Attention, vous n'avez que très peu de temps pour choisir.
 				</p>
@@ -52,7 +52,7 @@ export default {
 		self.currentState++
 		self.currentState= self.currentState%3
 	}
-	, 4000)
+	, 6000)
   } 
 }
 </script>
@@ -117,16 +117,22 @@ export default {
 	.tuto {
 		width: 60%;
 		margin: auto;
-		transform: translateY(-10px);
-		animation: slideIn .9s ease-in-out;
-		/* animation-iteration-count: infinite; */
+		/* transform: translateY(-10px); */
+		animation: slideIn 3s ease-in;
+		animation-iteration-count: infinite;
 		animation-direction: alternate;
 	}
+	/* .tuto-out { */
+		/* animation: slideOut .9s ease-in-out; */
+		/* transition: opacity .4s ease; */
+		/* transition-delay: 2000ms */
+	/* } */
 
 
 @keyframes slideIn {
-	0% { opacity: 0; transform: translateY(0px);}
-	100% { opacity: 1; transform: translateY(-10px)}
+	0% { opacity: 0;}
+	25% { opacity: 1}
+	100% { opacity: 1}
 }
 
 @keyframes slideOut {
