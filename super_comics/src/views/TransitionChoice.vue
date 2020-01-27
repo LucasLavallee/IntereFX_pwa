@@ -1,10 +1,10 @@
 
 <template>
-  <div id="validationChoice">
-    <video autoplay muted loop class="videoValidation">
-      <source :src="choice.videoOut" type="video/mp4">
+  <div id="transitionChoice">
+    <video autoplay muted loop class="videoTransition">
+      <source :src="transitionIn ? choice.videoIn : choice.videoOut" type="video/mp4">
     </video>
-    <div class="validationMessage">
+    <div class="transitionMessage">
       {{message}}
     </div>
   </div>
@@ -12,12 +12,15 @@
 
 <script>
 export default {
-  name: 'validationChoice',
-  props:['choice'],
+  name: 'transitionChoice',
+  props:['choice', 'transitionIn'],
   methods: {
   },
   computed:{
     message() {
+      if(this.transitionIn){
+        return "J'ai un deal à te proposer"
+      }
       if(this.choice.id) {
         return "Votre vote a bien été pris en compte."
       }
@@ -29,7 +32,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
-  #validationChoice {
+  #transitionChoice {
     height:100%;
     width:100%;
     background:rgb(0,0,0);
@@ -39,10 +42,10 @@ export default {
     font-size:20pt;
   }
 
-  .videoValidation {
+  .videoTransition {
     height:80%;
   }
-  .validationMessage {
+  .transitionMessage {
     height:20%;
     display:flex;
     align-items: center;

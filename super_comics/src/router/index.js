@@ -27,9 +27,9 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ '../views/CinemaMode')
     },
     {
-      path: '/validationChoice',
-      name: 'validationChoice',
-      component: () => import('../views/ValidationChoice'),
+      path: '/transitionChoice',
+      name: 'transitionChoice',
+      component: () => import('../views/TransitionChoice'),
       props: true
     }
   ]

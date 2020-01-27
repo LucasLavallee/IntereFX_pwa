@@ -43,7 +43,7 @@ export default {
       this.choice = choice
     },
     triggerValidationChoice(){
-      router.push({ name: 'validationChoice', params: {choice: this.choice }})
+      router.push({ name: 'transitionChoice', params: {choice: this.choice, transitionIn: false }})
     }
   },
   mounted(){
