@@ -4,10 +4,8 @@
       <p>Turn your phone on landscape mode</p>
     </div>
     <div id="app-landscape">
-      <div id="nav">
         <!-- <router-link to="/">Home</router-link> | -->
         <!-- <router-link to="/about">About</router-link> -->
-      </div>
       <router-view/>
     </div>
   </div>
@@ -21,6 +19,7 @@ export default {
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 </style>
 
 <style>
@@ -48,7 +47,9 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  color: #F9F9F9;
+  font-family: 'Montserrat', 'sans-serif'
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -106,15 +107,16 @@ table {
 @media only screen and (orientation:landscape) {
   #app-landscape {
     display: inherit;
-    /* background: linear-gradient(to bottom, #1ccfaf 0%,#2b0f34 76%); */
-    background-size: cover;
     margin: 0;
-    height: 100%
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 
   }
   #app-portrait {
     display: none;
-    height: 100%
+    height: 100%;
   }
 }
 
