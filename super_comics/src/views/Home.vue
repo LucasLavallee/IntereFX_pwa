@@ -35,7 +35,6 @@ export default {
   watch: {
     next_choice: {
       handler() {
-
         console.log(this.next_choice.timeout)
       }
     }

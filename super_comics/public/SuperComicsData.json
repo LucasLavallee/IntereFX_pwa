@@ -1,0 +1,20 @@
+{
+    "choicesList": [
+        {
+            "videoIn": "/video/test.mp4",
+            "videoOut": "/video/test.mp4",
+            "choicesVideo": [
+                "/video/test.mp4","/video/second.mp4"
+            ],
+            "choiceType": "basic_click"
+        },
+        {
+            "videoIn": "/video/test.mp4",
+            "videoOut": "/video/test.mp4",
+            "choicesVideo": [
+                "/video/second.mp4","/video/test.mp4"
+            ],
+            "choiceType": "basic_click"
+        }
+    ]
+}

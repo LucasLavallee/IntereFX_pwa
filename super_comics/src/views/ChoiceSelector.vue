@@ -9,13 +9,13 @@
     <div class="choiceContainer">
       <Choice 
         :class="[ (choice.id === id) ? 'selected' :  'classic' ]" 
-        @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" 
+        @selectChoice="selectMode" v-for="(item, id) in choices.choicesVideo" 
         :id="'choice' + id" 
         :choice="{
           id: id, 
-          videoIn:'/video/test.mp4',
-          videoVote: '/video/test.mp4',
-          videoOut: '/video/test.mp4'
+          videoIn: choices.videoIn,
+          videoVote: item,
+          videoOut: choices.videoOut
         }" 
         :key="id">
       </Choice>
@@ -27,26 +27,23 @@
 import Choice from '../components/Choice'
 import db from '../../base'
 
-import router from '../router/index'
 export default {
   name: 'ChoiceSelector',
   data() {
     return {
-      next_choice: null,
       choice: {
         id: null
       }
     }
   },
+  props: ['choices'],
   components: {
     Choice
   },
   methods: {
     selectMode(choice){
-      this.choice = choice
-    },
-    triggerValidationChoice(){
-      router.push({ name: 'transitionChoice', params: {choice: this.choice, transitionIn: false }})
+      console.log(choice)
+      this.$emit('selectMode', choice)
     }
   },
   firebase: {
@@ -59,7 +56,7 @@ export default {
     }
   },
   mounted(){
-    setTimeout(this.triggerValidationChoice, 3000);
+    //setTimeout(this.triggerValidationChoice, 3000);
   }
 
 }

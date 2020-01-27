@@ -16,7 +16,8 @@ const router = new Router({
     {
       path: '/choiceSelector',
       name: 'choiceSelector',
-      component: ChoiceSelector
+      component: ChoiceSelector,
+      props: true
     },
     {
       path: '/cinemaMode',

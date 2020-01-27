@@ -28,9 +28,11 @@ exports.updateNextChoice = functions.https.onRequest(async (req, res) => {
 exports.updateIsReady = functions.https.onRequest(async (req, res) => {
 
   // Grab the text parameter.
-  const newReadyState = req.body.isReady
+  let newReadyState = req.body.isReady
 
-  if(newReadyState !== "true" && newReadyState !== "false") {return res.send({success: 0})}
+  if(typeof newReadyState === "string") {newReadyState = (newReadyState === "true")}
+
+  if(newReadyState !== true && newReadyState !== false) {return res.send({success: 0})}
   
   // Push the new message into the Realtime Database using the Firebase Admin SDK.
   const snapshot = await admin.database().ref('/SuperComics').update({isReady: (newReadyState === "true")}).then(snapshot => {

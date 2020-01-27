@@ -2,7 +2,7 @@
 <template>
   <div id="transitionChoice">
     <video autoplay muted loop class="videoTransition">
-      <source :src="transitionIn ? choice.videoIn : choice.videoOut" type="video/mp4">
+      <source :src="infos.video" type="video/mp4">
     </video>
     <div class="transitionMessage">
       {{message}}
@@ -11,22 +11,23 @@
 </template>
 
 <script>
+
 export default {
   name: 'transitionChoice',
-  props:['choice', 'transitionIn'],
+  props:['infos'],
   methods: {
   },
   computed:{
     message() {
-      if(this.transitionIn){
+      if(this.infos.isTransitionIn){
         return "J'ai un deal à te proposer"
       }
-      if(this.choice.id) {
+      if(this.infos.hasVoted) {
         return "Votre vote a bien été pris en compte."
       }
       return "Dommage ! Vous n'avez pas été assez rapide."
     }
-  }
+  },
 }
 </script>
 
