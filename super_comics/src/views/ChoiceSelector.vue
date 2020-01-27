@@ -10,7 +10,13 @@
       <Choice 
         :class="[ (choice.id === id) ? 'selected' :  'classic' ]" 
         @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" 
-        :id="'choice' + id" :choice="{id: id, video: 'test.png'}" 
+        :id="'choice' + id" 
+        :choice="{
+          id: id, 
+          videoIn:'/video/test.mp4',
+          videoVote: '/video/test.mp4',
+          videoOut: '/video/test.mp4'
+        }" 
         :key="id">
       </Choice>
     </div>
@@ -19,6 +25,7 @@
 
 <script>
 import Choice from '../components/Choice'
+import router from '../router/index'
 export default {
   name: 'ChoiceSelector',
   data() {
@@ -36,7 +43,7 @@ export default {
       this.choice = choice
     },
     triggerValidationChoice(){
-
+      router.push({ name: 'validationChoice', params: {choice: this.choice }})
     }
   },
   mounted(){

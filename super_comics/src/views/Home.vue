@@ -25,7 +25,6 @@ export default {
   methods: {
     test(){
      router.replace('choiceSelector')
-    console.log({router: this.$router});
     }
   },
 
