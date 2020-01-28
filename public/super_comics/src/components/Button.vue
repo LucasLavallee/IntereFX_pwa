@@ -7,6 +7,7 @@
 <script>
 
 import router from '../router/index'
+import db from '../../base'
 
 export default {
 	name: 'Button',
