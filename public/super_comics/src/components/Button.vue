@@ -1,5 +1,5 @@
 <template>
-	<div @click="test" class="button-container">
+	<div @click="test" id="button-start" class="button-container">
 		<span id="value">Start</span>
 	</div>
 </template>
@@ -14,7 +14,27 @@ export default {
 		test(){
 			router.push('lobby')
 		}
-	}
+	},
+	data() {
+		return {
+			isReady: false,
+		}
+	},
+	firebase: {
+    	isReady: db.ref('SuperComics/isReady'),
+	},
+	watch: {
+    isReady: {
+      handler() {
+		if(this.isReady.val) {
+			document.getElementById("button-start").style.pointerEvents = "none"
+		}
+		else {
+			document.getElementById("button-start").style.pointerEvents = "auto"
+		}
+      }
+    }
+  },
 }
 
 
