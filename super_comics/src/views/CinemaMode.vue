@@ -118,4 +118,12 @@ export default {
     width:100%;
     background:rgb(0,0,0);
   }
+  #charaBehind {
+    height: 100%;
+    max-height: 400px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%)
+  }
 </style>
