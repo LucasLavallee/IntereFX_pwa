@@ -4,7 +4,7 @@
 		<div class="item">
 			<img id="loader" src="/img/CHARA_LOOP.gif"/>
 		</div>
-		<h1 class="item">Chargement</h1>
+		<h1 class="item">Chargement<span id="suspension">..</span></h1>
 	</div>
 	<div class="tuto-container">
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
@@ -52,6 +52,7 @@ export default {
 		self.currentState= self.currentState%3
 	}
 	, 6000)
+	
   } 
 }
 </script>
@@ -82,8 +83,12 @@ export default {
 	}
 	#loader {
 		width: 70px;
-		padding-left: 20px;
+		padding-right: 10px;
+		transform: scaleX(-1);
 		/* animation: rotation 2s linear infinite; */
+	}
+	#suspension {
+		animation: display 1.1s infinite alternate
 	}
 	.tutorial-container {
 		width: 50%;
@@ -104,6 +109,11 @@ export default {
 @keyframes slideIn {
 	0% { opacity: 0;}
 	25% { opacity: 1}
+	100% { opacity: 1}
+}
+
+@keyframes display {
+	0% { opacity: 0;}
 	100% { opacity: 1}
 }
 
