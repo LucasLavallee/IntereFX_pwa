@@ -2,8 +2,7 @@
 <template>
   <div id="choiceSelector">
     <div class="timerContainer">
-      <div class="timer">
-        00 : 03
+      <div class="timebar" :style="{width: timeLeft+'%'}">
       </div>
     </div>
     <div class="choiceContainer">
@@ -33,10 +32,13 @@ export default {
     return {
       choice: {
         id: null
-      }
+      },
+      timeLeft: 100, //%
+      intervalFunc: null,
+      decisionDuration: null
     }
   },
-  props: ['choices'],
+  props: ['choices','isOpen'],
   components: {
     Choice
   },
@@ -44,19 +46,33 @@ export default {
     selectMode(choice){
       this.choice = choice 
       this.$emit('selectMode', this.choice)
+    },
+    updateTime() {
+      const gap = (Math.floor(this.decisionDuration.val/200) * 100)/this.decisionDuration.val 
+      this.timeLeft -= gap
+
+      if(this.timeLeft <= 0) 
+        clearInterval(this.intervalFunc)
     }
   },
+  mounted() {
+  },
+
   firebase: {
-    next_choice: db.ref('SuperComics/next_choice')
+    decisionDuration: db.ref('SuperComics/decision/decisionDuration')
   },
   watch: {
-    next_choice: {
+    decisionDuration: {
       handler() {
+        this.decisionDuration.val
+      }
+    },
+    isOpen(newData) {
+      if(newData) {
+        const gap = Math.floor(this.decisionDuration.val/200)
+        setInterval(this.updateTime, gap)
       }
     }
-  },
-  mounted(){
-    //setTimeout(this.triggerValidationChoice, 3000);
   }
 
 }
@@ -69,6 +85,7 @@ export default {
     height:100%;
     width:100%;
     background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
+    position: relative;
   }
   .timerContainer {
     display:flex;
@@ -79,6 +96,13 @@ export default {
     background:rgb(28, 21, 59);
     color:white;
     font-family: 'Bangers', cursive;
+    position: relative;
+  }
+  .timebar{
+    height: 100%;
+    background-color: #FFC700;
+    position: absolute;
+    left: 0px;
   }
   .choiceContainer {
     height:90%;

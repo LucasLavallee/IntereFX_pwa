@@ -1,9 +1,9 @@
 
 <template>
   <div id="cinemaMode">
-    <img id="charaBehind" v-show="!currentStepIndex" src="/img/CHARA_BEHIND.png"/>
+    <img id="charaBehind" v-show="steps.cinema === currentStepIndex" src="/img/CHARA_BEHIND.png"/>
     <TransitionChoice v-show="steps.before === currentStepIndex" :infos="{isTransitionIn:true, video: choices[currentChoiceIndex+1].videoIn, hasVoted: null}"/>
-    <ChoiceSelector @selectMode="changeSelection" v-for="(choice, index) in choices" v-show="isDecisionTime(index)"  :choices="choice" :key="index" :vote="vote"/>
+    <ChoiceSelector @selectMode="changeSelection" v-for="(choice, index) in choices" v-show="isDecisionTime(index)"  :choices="choice" :key="index" :vote="vote" :isOpen="isDecisionTime(index)"/>
     <TransitionChoice v-show="steps.after === currentStepIndex" :infos="{isTransitionIn:false, video: choices[currentChoiceIndex+1].videoOut, hasVoted: this.vote}"/>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       currentChoiceIndex: -1,
-      currentStepIndex: null,
+      currentStepIndex: 3,
       choices: json.choicesList,
       next_choice: null,
       isReady: null,
@@ -35,7 +35,8 @@ export default {
       steps: {
         before: 0,
         decision: 1,
-        after: 2
+        after: 2,
+        cinema: 3
       },
       firstWatch: {
         next_choice: true,
@@ -69,7 +70,7 @@ export default {
 
       const self = this
       setTimeout(() => {  
-        self.currentStepIndex = -1
+        self.currentStepIndex = this.steps.cinema
         if(self.choices.length > self.currentChoiceIndex + 2)
           self.currentChoiceIndex++
       }, 2000)
