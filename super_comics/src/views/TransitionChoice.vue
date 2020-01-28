@@ -37,9 +37,6 @@ export default {
     height:100%;
     width:100%;
     background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
-    color:white;
-    font-family: 'Bangers', cursive;
-    color: #FFC700;
     font-size:20pt;
   }
 
@@ -51,5 +48,7 @@ export default {
     display:flex;
     align-items: center;
     justify-content: center;
+    color: #FFC700;
+    font-family: 'Bangers', cursive;
   }
 </style>
