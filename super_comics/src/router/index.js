@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '../views/Home'
 import ChoiceSelector from '../views/ChoiceSelector'
 import Lobby from '../views/Lobby'
+import CinemaMode from '../views/CinemaMode'
+import TransitionChoice from '../views/TransitionChoice'
 
 Vue.use(Router)
 const router = new Router({
@@ -22,16 +24,20 @@ const router = new Router({
     {
       path: '/choiceSelector',
       name: 'choiceSelector',
-      component: ChoiceSelector
+      component: ChoiceSelector,
+      props: true
     },
     {
       path: '/cinemaMode',
       name: 'cinemaMode',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/CinemaMode')
+      component: CinemaMode
     },
+    {
+      path: '/transitionChoice',
+      name: 'transitionChoice',
+      component: TransitionChoice,
+      props: true
+    }
   ]
 });
 

@@ -16,24 +16,16 @@ export default {
   components: {
     Button
   },
-  // data() {
-  //   return {
-  //     next_choice: null,
-  //     currentActionId: 0
-  //   }
-  // },
-  // firebase: {
-  //   next_choice: db.ref('SuperComics/next_choice')
-  // },
-
-  // watch: {
-  //   next_choice: {
-  //     handler() {
-
-  //       console.log(this.next_choice.timeout)
-  //     }
-  //   }
-  // }
+  data() {
+    return {
+      currentActionId: 0
+    }
+  },
+  methods: {
+    test(){
+     router.replace('choiceSelector')
+    }
+  },
 }
 </script>
 

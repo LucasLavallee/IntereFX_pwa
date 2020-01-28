@@ -2,11 +2,11 @@
 <template>
   <div class="choice" @click="selectChoice">
     <div class="choiceNumber">
-      Option {{choice.id + 1}}
+      Option {{choice.id + 1 }}
     </div>
     <div class="videoContainer">
       <video autoplay muted loop class="videoChoice">
-       <source src="../../public/video/test.mp4" type="video/mp4">
+       <source :src="choice.videoVote" type="video/mp4">
       </video>
     </div>
   </div>
