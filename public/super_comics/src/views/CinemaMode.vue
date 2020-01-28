@@ -2,9 +2,9 @@
 <template>
   <div id="cinemaMode">
     <img id="charaBehind" v-show="steps.cinema === currentStepIndex" src="/img/CHARA_BEHIND.png"/>
-    <TransitionChoice v-show="steps.before === currentStepIndex" :infos="{isTransitionIn:true, video: choices[currentChoiceIndex+1].videoIn, hasVoted: null}"/>
-    <ChoiceSelector @selectMode="changeSelection" v-for="(choice, index) in choices" v-show="isDecisionTime(index)"  :choices="choice" :key="index" :vote="vote" :isOpen="isDecisionTime(index)"/>
-    <TransitionChoice v-show="steps.after === currentStepIndex" :infos="{isTransitionIn:false, video: choices[currentChoiceIndex+1].videoOut, hasVoted: this.vote}"/>
+    <TransitionChoice v-show="steps.before === currentStepIndex" :infos="{isTransitionIn:true, video: momemtums[currentChoiceIndex+1].videoIn, hasVoted: null}"/>
+    <ChoiceSelector @selectMode="changeSelection" v-for="(momentum, index) in momemtums" v-show="isDecisionTime(index)"  :momentum="momentum" :momentumId="index" :key="index" :vote="vote" :isOpen="isDecisionTime(index)"/>
+    <TransitionChoice v-show="steps.after === currentStepIndex" :infos="{isTransitionIn:false, video: momemtums[currentChoiceIndex+1].videoOut, hasVoted: this.vote}"/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     return {
       currentChoiceIndex: -1,
       currentStepIndex: 3,
-      choices: json.choicesList,
+      momemtums: json.choicesList,
       next_choice: null,
       isReady: null,
       decisionClosed: null,
@@ -72,7 +72,7 @@ export default {
       const self = this
       setTimeout(() => {  
         self.currentStepIndex = this.steps.cinema
-        if(self.choices.length > self.currentChoiceIndex + 2)
+        if(self.momemtums.length > self.currentChoiceIndex + 2)
           self.currentChoiceIndex++
       }, 2000)
     },
