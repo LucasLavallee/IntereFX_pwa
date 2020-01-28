@@ -2,9 +2,9 @@
   <div class="lobby">
 	<div class="loading-container">
 		<div class="item">
-			<img id="loader" src="/img/loader.png"/>
+			<img id="loader" src="/img/CHARA_LOOP.gif"/>
 		</div>
-		<h1 class="item">Loading </h1>
+		<h1 class="item">Chargement</h1>
 	</div>
 	<div class="tuto-container">
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
@@ -30,7 +30,6 @@
 			</div>
 		<!-- </transition> -->
 	</div>
-	
   </div>
 </template>
 
@@ -60,7 +59,7 @@ export default {
 <style scoped>
 	h1 {
 		font-family: 'Bangers', cursive;
-		font-size: 3em;
+		font-size: 2em;
 		color: #F9F9F9;
 		/* text-shadow: 2px 4px #FFC700; */
 		text-align: center
@@ -68,52 +67,31 @@ export default {
 	.lobby {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100%
+		/* justify-content: center;*/
+		align-items: center; 
+		height: 50%
 	}
 	.loading-container {
 		display: flex;
-		flex-direction: row;
-		justify-content: center;
+		flex-direction: column;
+		/* justify-content: center; */
 		margin-bottom: 20px
 	}
 	.item {
-		/* margin: 0 15px; */
-		width: 60%;
-		margin: auto
+		margin: 0
 	}
 	#loader {
-		width: 40px;
-		animation: rotation 2s linear infinite;
+		width: 70px;
+		padding-left: 20px;
+		/* animation: rotation 2s linear infinite; */
 	}
 	.tutorial-container {
 		width: 50%;
 		/* margin: auto; */
 	}
-	.logo {
-		width: 50px  
+	#title {
+		font-size: 1em
 	}
-	/* .fade-in-out-enter-active { */
-		/* transition: all .5s ease-in; */
-		/* animation: slideIn 2s; */
-	/* } */
-	/* .fade-in-out-leave-active { */
-		/* transition: all .8s ease-out; */
-		/* animation: slideOut 2s; */
-	/* } */
-	/* .fade-in-out-enter, .fade-in-out-leave-to { */
-		/* transform: translateX(10px); */
-		/* opacity: 0; */
-	/* }  */
-	/* .fade-in-out-enter-active, .fade-in-out-leave-active {
-		transition: opacity .5s ease-in;
-	}
-	.fade-in-out-enter, .fade-in-out-leave-to
-		/* .component-fade-leave-active avant la 2.1.8 */ 
-		/* opacity: 0; */
-	/* } */ 
-
 	.tuto {
 		width: 60%;
 		margin: auto;
@@ -122,12 +100,6 @@ export default {
 		animation-iteration-count: infinite;
 		animation-direction: alternate;
 	}
-	/* .tuto-out { */
-		/* animation: slideOut .9s ease-in-out; */
-		/* transition: opacity .4s ease; */
-		/* transition-delay: 2000ms */
-	/* } */
-
 
 @keyframes slideIn {
 	0% { opacity: 0;}
