@@ -53,7 +53,7 @@ time, mark, audio, video {
 	font: inherit;
   vertical-align: baseline;
   color: #F9F9F9;
-  font-family: 'Montserrat', 'sans-serif'
+  font-family: 'Montserrat', 'sans-serif';
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -67,6 +67,7 @@ body {
   line-height: 1;
   height: 100%;
   background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
+  overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -129,10 +130,11 @@ p{
   #app-landscape {
     display: inherit;
     display: flex;
-    height: 75%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center
 
   }
   #app-portrait {
