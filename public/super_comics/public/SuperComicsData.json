@@ -4,8 +4,17 @@
             "id": 0,
             "videoIn": "/video/test1.mp4",
             "videoOut": "/video/test1.mp4",
-            "choicesVideo": [
-                "/video/test1.mp4","/video/test2.mp4"
+            "possibilities": [
+                {
+                    "video": "/video/test1.mp4",
+                    "message": "Choix 1",
+                    "placeholder": "/img/placeholders/choix1.png"
+                },
+                {
+                    "video": "/video/test2.mp4",
+                    "message": "Choix 2",
+                    "placeholder": "/img/placeholders/choix2.png"
+                }
             ],
             "choiceType": "basic_click"
         },
@@ -13,8 +22,17 @@
             "id": 1,
             "videoIn": "/video/test1.mp4",
             "videoOut": "/video/test1.mp4",
-            "choicesVideo": [
-                "/video/test1.mp4","/video/test1.mp4"
+            "possibilities": [
+                {
+                    "video": "/video/test1.mp4",
+                    "message": "Choix 3",
+                    "placeholder": "/img/placeholders/choix1.png"
+                },
+                {
+                    "video": "/video/test1.mp4",
+                    "message": "Choix 4",
+                    "placeholder": "/img/placeholders/choix1.png"
+                }
             ],
             "choiceType": "basic_click"
         }

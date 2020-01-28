@@ -7,14 +7,13 @@
     </div>
     <div class="choiceContainer">
       <Choice 
-        :class="[ (item.id + '' + choice.id === item.id + '' + id) ? 'selected' :  'classic' ]" 
-        @selectChoice="selectMode" v-for="(item, id) in choices.choicesVideo" 
-        :id="'choice' + choice.id + id" 
-        :choice="{
+        :class="[ (possibility.id + '' + choice.id === possibility.id + '' + id) ? 'selected' :  'classic' ]" 
+        @selectChoice="selectMode" v-for="(possibility, id) in momentum.possibilities" 
+        :id="'choice' + momentumId + id" 
+        :possibility="{
+          momentum_id: momentum.id,
           id: id, 
-          videoIn: choices.videoIn,
-          videoVote: item,
-          videoOut: choices.videoOut
+          datas: possibility
         }" 
         :key="id">
       </Choice>
@@ -38,7 +37,7 @@ export default {
       decisionDuration: null
     }
   },
-  props: ['choices','isOpen'],
+  props: ['momentum','isOpen', 'momentumId'],
   components: {
     Choice
   },
