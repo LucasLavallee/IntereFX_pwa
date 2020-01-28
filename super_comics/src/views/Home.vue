@@ -18,24 +18,12 @@ export default {
   },
   data() {
     return {
-      next_choice: null,
       currentActionId: 0
     }
   },
   methods: {
     test(){
      router.replace('choiceSelector')
-    }
-  },
-
-  firebase: {
-    next_choice: db.ref('SuperComics/next_choice')
-  },
-
-  watch: {
-    next_choice: {
-      handler() {
-      }
     }
   },
 }

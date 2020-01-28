@@ -2,7 +2,7 @@
 <template>
   <div class="choice" @click="selectChoice">
     <div class="choiceNumber">
-      Option {{choice.id + 1}}
+      Option {{choice.id + 1 }}
     </div>
     <div class="videoContainer">
       <video autoplay muted loop class="videoChoice">

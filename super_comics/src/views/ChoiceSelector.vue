@@ -8,14 +8,14 @@
     </div>
     <div class="choiceContainer">
       <Choice 
-        :class="[ (choice.id === id) ? 'selected' :  'classic' ]" 
-        @selectChoice="selectMode" v-for="(item, id) in new Array(2).fill(0)" 
-        :id="'choice' + id" 
+        :class="[ (item.id + '' + choice.id === item.id + '' + id) ? 'selected' :  'classic' ]" 
+        @selectChoice="selectMode" v-for="(item, id) in choices.choicesVideo" 
+        :id="'choice' + choice.id + id" 
         :choice="{
           id: id, 
-          videoIn:'/video/test.mp4',
-          videoVote: '/video/test.mp4',
-          videoOut: '/video/test.mp4'
+          videoIn: choices.videoIn,
+          videoVote: item,
+          videoOut: choices.videoOut
         }" 
         :key="id">
       </Choice>
@@ -25,7 +25,8 @@
 
 <script>
 import Choice from '../components/Choice'
-import router from '../router/index'
+import db from '../../base'
+
 export default {
   name: 'ChoiceSelector',
   data() {
@@ -35,19 +36,27 @@ export default {
       }
     }
   },
+  props: ['choices'],
   components: {
     Choice
   },
   methods: {
     selectMode(choice){
-      this.choice = choice
-    },
-    triggerValidationChoice(){
-      router.push({ name: 'transitionChoice', params: {choice: this.choice, transitionIn: false }})
+      this.choice = choice 
+      this.$emit('selectMode', this.choice)
+    }
+  },
+  firebase: {
+    next_choice: db.ref('SuperComics/next_choice')
+  },
+  watch: {
+    next_choice: {
+      handler() {
+      }
     }
   },
   mounted(){
-    setTimeout(this.triggerValidationChoice, 3000);
+    //setTimeout(this.triggerValidationChoice, 3000);
   }
 
 }
