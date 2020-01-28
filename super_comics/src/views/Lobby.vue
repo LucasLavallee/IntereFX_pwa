@@ -65,7 +65,6 @@ export default {
   watch: {
     isReady: {
       handler() {
-		console.log("SHIBA")
 		if(!this.firstWatch && this.isReady.val) {
 			router.push({name:'cinemaMode'})
 		}
