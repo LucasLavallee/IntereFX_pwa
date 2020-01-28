@@ -5,7 +5,7 @@
       Option {{choice.id + 1 }}
     </div>
     <div class="videoContainer">
-      <video autoplay muted loop class="videoChoice">
+      <video autoplay muted loop playsInline class="videoChoice">
        <source :src="choice.videoVote" type="video/mp4">
       </video>
     </div>

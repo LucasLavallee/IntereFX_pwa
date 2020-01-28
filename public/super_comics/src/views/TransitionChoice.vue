@@ -1,7 +1,7 @@
 
 <template>
   <div id="transitionChoice">
-    <video autoplay muted loop class="videoTransition">
+    <video autoplay muted loop playsInline class="videoTransition">
       <source :src="infos.video" type="video/mp4">
     </video>
     <div class="transitionMessage">
