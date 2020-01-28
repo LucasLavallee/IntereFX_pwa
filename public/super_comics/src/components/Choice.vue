@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     selectChoice(){
-      this.$emit('selectChoice', this.choice)
+      this.$emit('selectChoice', this.possibility)
     },
     checkLoad() {
         if (this.video.readyState === 4) {
