@@ -108,7 +108,7 @@ export default {
     justify-content: center;
   }
   .classic, .selected {
-     transition: all 0.4s ease-in-out;
+     transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
   }
   .classic {
     width:50%

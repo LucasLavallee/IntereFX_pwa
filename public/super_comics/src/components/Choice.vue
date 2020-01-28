@@ -61,8 +61,9 @@ export default {
     font-family: 'Bangers', cursive;
   }
   .videoContainer {
-    height:85%;
-    transition: all 0.2s ease-in;
+    height:70%;
+    transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
+    overflow: hidden;
   }
   .selected .videoContainer {
     display:flex;
@@ -73,12 +74,15 @@ export default {
     display:none;
   }
   .videoChoice {
-    transition: all 0.2s ease-in;
-    height:85%;
+    transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
+    height:100%;
   }
   .selected .videoChoice {
     height:95%;
     border:3px solid #FFC700;
+  }
+  .videoContainer, .selected .videoChoice {
+    border-radius:30px;
   }
   .selected .videoContainer {
     height:95%;
