@@ -2,19 +2,19 @@
     "choicesList": [
         {
             "id": 0,
-            "videoIn": "/video/test.mp4",
-            "videoOut": "/video/test.mp4",
+            "videoIn": "/video/test1.mp4",
+            "videoOut": "/video/test1.mp4",
             "choicesVideo": [
-                "/video/test.mp4","/video/second.mp4"
+                "/video/test1.mp4","/video/test2.mp4"
             ],
             "choiceType": "basic_click"
         },
         {
             "id": 1,
-            "videoIn": "/video/test.mp4",
-            "videoOut": "/video/test.mp4",
+            "videoIn": "/video/test1.mp4",
+            "videoOut": "/video/test1.mp4",
             "choicesVideo": [
-                "/video/second.mp4","/video/second.mp4"
+                "/video/test1.mp4","/video/test1.mp4"
             ],
             "choiceType": "basic_click"
         }

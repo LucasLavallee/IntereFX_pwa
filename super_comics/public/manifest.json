@@ -1,0 +1,11 @@
+{
+  "short_name": "Super Comics",
+  "name": "Super Comics",
+  "icons": [
+    {
+      "src": "/img/iconapp.jpg",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
