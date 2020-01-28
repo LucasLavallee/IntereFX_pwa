@@ -22,14 +22,12 @@
             "videoOut": "/video/test1.mp4",
             "possibilities": [
                 {
-                    "video": "/video/Bras_MP4.mp4.mp4",
-                    "message": "Choix 3",
-                    "placeholder": "/img/placeholders/choix1.png"
+                    "video": "/video/Bras.gif",
+                    "message": "Autre lol"
                 },
                 {
-                    "video": "/video/test1.mp4",
-                    "message": "Choix 4",
-                    "placeholder": "/img/placeholders/choix1.png"
+                    "video": "/video/Tentacule.gif",
+                    "message": "Visu pls"
                 }
             ],
             "choiceType": "basic_click"
