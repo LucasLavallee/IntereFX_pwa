@@ -35,14 +35,18 @@
 
 <script>
 // @ is an alias to /src
-// import SliderTuto from '@/components/SliderTuto'
+
+import db from '../../base'
+import router from '../router/index'
 export default {
   name: 'Lobby',
   components: {
   },
   data() {
 	return {
-		currentState: 0
+		currentState: 0,
+		isReady: false,
+		firstWatch: true
 	}
   },
   mounted() {
@@ -52,8 +56,25 @@ export default {
 		self.currentState= self.currentState%3
 	}
 	, 6000)
-	
-  } 
+  },
+  
+  firebase: {
+    isReady: db.ref('SuperComics/isReady'),
+  },
+
+  watch: {
+    isReady: {
+      handler() {
+		console.log("SHIBA")
+		if(!this.firstWatch && this.isReady.val) {
+			router.push({name:'cinemaMode'})
+		}
+		else {
+			this.firstWatch = false
+		}
+      }
+    }
+  },
 }
 </script>
 
@@ -68,9 +89,8 @@ export default {
 	.lobby {
 		display: flex;
 		flex-direction: column;
-		/* justify-content: center;*/
 		align-items: center; 
-		height: 50%
+		height: 250px;
 	}
 	.loading-container {
 		display: flex;
