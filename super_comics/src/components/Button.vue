@@ -12,7 +12,7 @@ export default {
 	name: 'Button',
 	methods: {
 		test(){
-			router.replace('lobby')
+			router.push('lobby')
 			console.log({router: this.$router})
 		}
 	}
