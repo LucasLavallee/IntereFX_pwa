@@ -10,6 +10,7 @@
 <script>
 // @ is an alias to /src
 import Button from '@/components/Button'
+import router from '../router/index'
 
 export default {
   name: 'home',
