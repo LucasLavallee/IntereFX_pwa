@@ -1,0 +1,21 @@
+{
+  "projects": {
+    "default": "intereFX_pwa"
+  },
+  "targets": {
+    "intereFX_pwa": {
+      "hosting": {
+        "supercomics": [
+          "public/super_comics/dist"
+        ]
+      }
+    },
+    "interefx-appli": {
+      "hosting": {
+        "supercomics-interefx": [
+          "public/super_comics/dist"
+        ]
+      }
+    }
+  }
+}

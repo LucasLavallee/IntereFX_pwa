@@ -36,7 +36,7 @@ exports.updateIsReady = functions.https.onRequest(async (req, res) => {
   if(newReadyState !== true && newReadyState !== false) {return res.send({success: 0})}
   
   // Push the new message into the Realtime Database using the Firebase Admin SDK.
-  const snapshot = await admin.database().ref('/SuperComics').update({isReady: newReadyState}).then(snapshot => {
+  const snapshot = await admin.database().ref('/SuperComics/isReady').update({val: newReadyState}).then(snapshot => {
     return res.send({success: 1})
   })
   // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
