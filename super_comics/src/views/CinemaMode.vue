@@ -63,7 +63,6 @@ export default {
        db.ref("/SuperComics/decision/choices/choices/choice" + (this.vote) )
       .push(0)
       .then(() => {
-        console.log('data send !')
       })
 
       this.currentStepIndex = this.steps.after
@@ -71,7 +70,6 @@ export default {
       const self = this
       setTimeout(() => {  
         self.currentStepIndex = -1
-        console.log(self.choices.length, self.currentChoiceIndex+ 1)
         if(self.choices.length > self.currentChoiceIndex + 2)
           self.currentChoiceIndex++
       }, 2000)
@@ -98,7 +96,6 @@ export default {
     decisionClosed: {
       handler() {
         if(this.decisionClosed.val === true) {
-          console.log("detect decision Closing")
           this.sendVote()
         }
       }
@@ -117,5 +114,13 @@ export default {
     height:100%;
     width:100%;
     background:rgb(0,0,0);
+  }
+  #charaBehind {
+    height: 100%;
+    max-height: 400px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%)
   }
 </style>
