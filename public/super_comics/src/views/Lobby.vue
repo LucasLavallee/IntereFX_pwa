@@ -38,6 +38,8 @@
 
 import db from '../../base'
 import router from '../router/index'
+import NoSleep from 'nosleep.js'
+
 export default {
   name: 'Lobby',
   components: {
@@ -46,10 +48,14 @@ export default {
 	return {
 		currentState: 0,
 		isReady: false,
-		firstWatch: true
+		firstWatch: true, 
+		noSleep: null
 	}
   },
   mounted() {
+	this.noSleep = new NoSleep()
+	this.noSleep.enable()
+	
 	const self=this
 	setInterval(()=>{
 		self.currentState++

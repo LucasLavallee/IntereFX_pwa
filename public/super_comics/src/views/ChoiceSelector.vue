@@ -55,8 +55,6 @@ export default {
         clearInterval(this.intervalFunc)
     }
   },
-  mounted() {
-  },
 
   firebase: {
     decisionDuration: db.ref('SuperComics/decision/decisionDuration')

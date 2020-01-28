@@ -15,6 +15,7 @@ import TransitionChoice from './TransitionChoice'
 import json from '../../public/SuperComicsData.json'
 import db from '../../base'
 import router from '../router'
+import NoSleep from 'nosleep.js'
 
 export default {
   name: 'CinemaMode',
@@ -41,7 +42,8 @@ export default {
       firstWatch: {
         next_choice: true,
         isReady: true
-      }
+      },
+      noSleep: null
     }
   },
   methods: {
@@ -60,7 +62,6 @@ export default {
       }, 2000)
     },
     sendVote() {
-
        db.ref("/SuperComics/decision/choices/choices/choice" + (this.vote) )
       .push(0)
       .then(() => {
@@ -81,6 +82,10 @@ export default {
     changeSelection(choice) {
       this.vote = choice.id+1
     }
+  },
+  mounted() {
+    this.noSleep = new NoSleep()
+    this.noSleep.enable()
   },
   firebase: {
     decisionClosed: db.ref('SuperComics/decision/decisionClosed'),
