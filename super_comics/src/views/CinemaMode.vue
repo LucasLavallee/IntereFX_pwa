@@ -3,7 +3,7 @@
   <div id="cinemaMode">
     <img id="charaBehind" v-show="!currentStepIndex" src="/img/CHARA_BEHIND.png"/>
     <TransitionChoice v-show="steps.before === currentStepIndex" :infos="{isTransitionIn:true, video: choices[currentChoiceIndex+1].videoIn, hasVoted: null}"/>
-    <ChoiceSelector @selectMode="changeSelection" v-for="(choice, index) in choices" v-show="isDecisionTime(index)"  :choices="choice" :key="index" :vote="vote"/>
+    <ChoiceSelector @selectMode="changeSelection" v-for="(choice, index) in choices" v-show="isDecisionTime(index)"  :choices="choice" :key="index" :vote="vote" :isOpen="isDecisionTime(index)"/>
     <TransitionChoice v-show="steps.after === currentStepIndex" :infos="{isTransitionIn:false, video: choices[currentChoiceIndex+1].videoOut, hasVoted: this.vote}"/>
   </div>
 </template>
