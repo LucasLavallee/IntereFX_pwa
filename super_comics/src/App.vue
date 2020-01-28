@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="app-portrait">
-      <p>Turn your phone on landscape mode</p>
+      <h1 class="item" id=title>Super Comics </h1>
+      <p class="item">Pour profiter pleinement de l'expérience, veuillez mettre votre téléphone en mode paysage.</p>
+      <img id="rotation" class="logo item" src="/img/rotation.png"/>
     </div>
     <div id="app-landscape">
         <!-- <router-link to="/">Home</router-link> | -->
@@ -63,7 +65,8 @@ html {
 }
 body {
   line-height: 1;
-  min-height: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
 }
 ol, ul {
 	list-style: none;
@@ -81,7 +84,11 @@ table {
 	border-spacing: 0;
 }
 
-/************** */
+p{
+  line-height: 1.5em
+}
+
+/****************/
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -89,13 +96,13 @@ table {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  min-height: 100%;
+  height: 100%;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* background: linear-gradient(to bottom, #1ccfaf -100%,#24676c 40%,#2b0f34 95%); */
-  background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
+  /* position: fixed; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #app-landscape {
@@ -103,21 +110,30 @@ table {
     
 }
 #app-portrait {
-    display: contents;
-    height: 100%
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+#title {
+    font-family: 'Bangers', cursive;
+    font-size: 5em;
+    color: #F9F9F9;
+    text-shadow: 2px 4px #FFC700;
+    text-align: center;
 }
 
 @media only screen and (orientation:landscape) {
   #app-landscape {
     display: inherit;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: center;
+    height: 75%;
+    width: 80%;
+    flex-direction: column;
     align-items: center;
-    position: fixed;
+
   }
   #app-portrait {
     display: none;
@@ -125,6 +141,13 @@ table {
   }
 }
 
+.logo {
+	width: 40px;
+}
+
+.item {
+  margin: 15px 0;
+}
 
 #nav {
   padding: 30px;
