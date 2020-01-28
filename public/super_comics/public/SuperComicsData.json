@@ -6,7 +6,7 @@
             "videoOut": "/video/test1.mp4",
             "possibilities": [
                 {
-                    "video": "/video/test1.mp4",
+                    "video": "/video/Bras_MP4.mp4",
                     "message": "Choix 1",
                     "placeholder": "/img/placeholders/choix1.png"
                 },
@@ -24,7 +24,7 @@
             "videoOut": "/video/test1.mp4",
             "possibilities": [
                 {
-                    "video": "/video/test1.mp4",
+                    "video": "/video/Bras_MP4.mp4.mp4",
                     "message": "Choix 3",
                     "placeholder": "/img/placeholders/choix1.png"
                 },
