@@ -13,6 +13,7 @@ import ChoiceSelector from './ChoiceSelector'
 import TransitionChoice from './TransitionChoice'
 import json from '../../public/SuperComicsData.json'
 import db from '../../base'
+import router from '../router'
 
 export default {
   name: 'CinemaMode',
@@ -26,6 +27,7 @@ export default {
       currentStepIndex: null,
       choices: json.choicesList,
       next_choice: null,
+      isReady: null,
       decisionClosed: null,
       timeout: null,
       vote:null,
@@ -34,7 +36,10 @@ export default {
         decision: 1,
         after: 2
       },
-      firstWatch: true
+      firstWatch: {
+        next_choice: true,
+        isReady: true
+      }
     }
   },
   methods: {
@@ -45,6 +50,7 @@ export default {
     },
     handleDecisions() {
       this.currentStepIndex = this.steps.before
+      //navigator.vibrate(1000)
       
       const self = this
       setTimeout(() => {
@@ -52,34 +58,53 @@ export default {
       }, 2000)
     },
     sendVote() {
-      this.currentChoiceIndex++
-      console.log('sending vote: ' + this.vote)
+
+       db.ref("/SuperComics/decision/choices/choices/choice" + (this.vote) )
+      .push(0)
+      .then(() => {
+        console.log('data send !')
+      })
+
       this.currentStepIndex = this.steps.after
+
+      const self = this
+      setTimeout(() => {  
+        self.currentStepIndex = -1
+        console.log(self.choices.length, self.currentChoiceIndex+ 1)
+        if(self.choices.length > self.currentChoiceIndex + 2)
+          self.currentChoiceIndex++
+      }, 2000)
     },
     isDecisionTime (index) {
       return (index === this.currentChoiceIndex+1) && (this.currentStepIndex === this.steps.decision)
     },
     changeSelection(choice) {
-      console.log(choice.id)
-      this.vote = choice.id
+      this.vote = choice.id+1
     }
   },
   firebase: {
-    decisionClosed: db.ref('SuperComics/decisionClosed'),
-    next_choice: db.ref('SuperComics/next_choice')
+    decisionClosed: db.ref('SuperComics/decision/decisionClosed'),
+    next_choice: db.ref('SuperComics/next_choice'),
+    isReady: db.ref('SuperComics/isReady'),
   },
 
   watch: {
     next_choice: {
       handler() {
-        !this.firstWatch ? this.handleSynchronization(parseInt(this.next_choice.timeout)) : this.firstWatch = false
+        !this.firstWatch.next_choice ? this.handleSynchronization(parseInt(this.next_choice.val)) : this.firstWatch.next_choice = false
       }
     },
     decisionClosed: {
       handler() {
         if(this.decisionClosed.val === true) {
+          console.log("detect decision Closing")
           this.sendVote()
         }
+      }
+    },
+    isReady: {
+      handler() {
+        !this.firstWatch.isReady && this.isReady.val === false ? router.push({name:'home'}) : this.firstWatch.isReady = false
       }
     }
   },

@@ -8,9 +8,9 @@
     </div>
     <div class="choiceContainer">
       <Choice 
-        :class="[ (choice.id === id) ? 'selected' :  'classic' ]" 
+        :class="[ (item.id + '' + choice.id === item.id + '' + id) ? 'selected' :  'classic' ]" 
         @selectChoice="selectMode" v-for="(item, id) in choices.choicesVideo" 
-        :id="'choice' + id" 
+        :id="'choice' + choice.id + id" 
         :choice="{
           id: id, 
           videoIn: choices.videoIn,
@@ -42,8 +42,8 @@ export default {
   },
   methods: {
     selectMode(choice){
-      console.log(choice)
-      this.$emit('selectMode', choice)
+      this.choice = choice 
+      this.$emit('selectMode', this.choice)
     }
   },
   firebase: {
