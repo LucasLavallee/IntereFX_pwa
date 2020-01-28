@@ -4,12 +4,8 @@
     <div class="choiceNumber">
       {{ possibility.datas.message }}
     </div>
-    
     <div class="videoContainer">
-      <img v-show="!isVideoLoaded" :src="possibility.datas.placeholder" alt="placeholder" class="placeholder">
-      <video :id="'video' + possibility.momentum_id + possibility.id" v-show="isVideoLoaded" autoplay muted loop playsInline class="videoChoice">
-       <source :src="possibility.datas.video" type="video/mp4">
-      </video>
+      <img :src="possibility.datas.video" alt="placeholder" class="video">
     </div>
     
   </div>
@@ -64,31 +60,19 @@ export default {
     height:70%;
     transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
     overflow: hidden;
+    border-radius:30px;
   }
   .selected .videoContainer {
-    display:flex;
-    align-items: center;
-    justify-content:center;
+   border:3px solid #FFC700;
+  }
+  .video {
+    height:100%;
   }
   .selected .choiceNumber {
     display:none;
   }
-  .videoChoice {
-    transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
-    height:100%;
-  }
-  .selected .videoChoice {
-    height:95%;
-    border:3px solid #FFC700;
-  }
-  .videoContainer, .selected .videoChoice {
-    border-radius:30px;
-  }
   .selected .videoContainer {
     height:95%;
-  }
-  .placeholder {
-     height:85%;
   }
 
 </style>

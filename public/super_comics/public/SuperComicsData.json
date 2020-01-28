@@ -6,14 +6,12 @@
             "videoOut": "/video/test1.mp4",
             "possibilities": [
                 {
-                    "video": "/video/Bras_MP4.mp4",
-                    "message": "Choix 1",
-                    "placeholder": "/img/placeholders/Bras.jpg"
+                    "video": "/video/Bras.gif",
+                    "message": "Bras"
                 },
                 {
-                    "video": "/video/bras.gif",
-                    "message": "Choix 2",
-                    "placeholder": "/img/placeholders/Tentacule.jpg"
+                    "video": "/video/Tentacule.gif",
+                    "message": "Tentacule"
                 }
             ],
             "choiceType": "basic_click"
