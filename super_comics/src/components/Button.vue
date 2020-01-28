@@ -13,7 +13,6 @@ export default {
 	methods: {
 		test(){
 			router.push('lobby')
-			console.log({router: this.$router})
 		}
 	}
 }
