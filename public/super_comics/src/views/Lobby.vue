@@ -101,7 +101,7 @@ export default {
 		margin: 0
 	}
 	#loader {
-		width: 70px;
+		width: 100px;
 		padding-right: 10px;
 		transform: scaleX(-1);
 		/* animation: rotation 2s linear infinite; */
