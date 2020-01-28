@@ -8,12 +8,12 @@
                 {
                     "video": "/video/Bras_MP4.mp4",
                     "message": "Choix 1",
-                    "placeholder": "/img/placeholders/choix1.png"
+                    "placeholder": "/img/placeholders/Bras.jpg"
                 },
                 {
-                    "video": "/video/test2.mp4",
+                    "video": "/video/Tentacule_MP4.mp4",
                     "message": "Choix 2",
-                    "placeholder": "/img/placeholders/choix2.png"
+                    "placeholder": "/img/placeholders/Tentacule.jpg"
                 }
             ],
             "choiceType": "basic_click"

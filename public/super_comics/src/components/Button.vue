@@ -22,7 +22,7 @@ export default {
 		}
 	},
 	firebase: {
-    	isReady: db.ref('SuperComics/isReady'),
+		isReady: db.ref('SuperComics/isReady'),
 	},
 	watch: {
     isReady: {
