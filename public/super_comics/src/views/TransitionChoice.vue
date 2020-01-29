@@ -1,9 +1,10 @@
 
 <template>
   <div id="transitionChoice">
-    <video autoplay muted loop playsInline class="videoTransition">
+    <!-- <video autoplay muted loop playsInline class="videoTransition">
       <source :src="infos.video" type="video/mp4">
-    </video>
+    </video> -->
+    <img id="imageTransition" :src="infos.video"/>
     <div class="transitionMessage">
       {{message}}
     </div>
@@ -42,6 +43,9 @@ export default {
 
   .videoTransition {
     height:80%;
+  }
+  #imageTransition {
+    width:30%;
   }
   .transitionMessage {
     height:20%;
