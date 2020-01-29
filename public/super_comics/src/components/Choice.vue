@@ -6,7 +6,6 @@
     </div>
     <div class="videoContainer">
       <img :src="possibility.datas.video" alt="placeholder" class="video">
-      <div class="result">{{ currentPercentageOfVote }}%</div>
     </div>
   </div>
 </template>
@@ -15,24 +14,48 @@
 import db from '../../base'
 export default {
   name: 'Choice',
-  props:['possibility'],
+  props:['possibility', 'mode'],
   data() {
     return {
       isVideoLoaded: false,
       video: null,
       arrayOfVote: 0,
       choiceName: null,
-      currentPercentageOfVote: 0
+      currentPercentageOfVote: 0,
+			swipe: 0,
     }
   },
   methods: {
     selectChoice(){
-      this.$emit('selectChoice', this.possibility)
+      if(this.activeMode === 'click')
+        this.$emit('selectChoice', this.possibility)
     }
   },
   mounted(){
     const realId = this.possibility.id + 1
     this.choiceName = 'choice' + realId
+    this.activeMode = this.mode
+    const self = this
+		if(window.DeviceMotionEvent && this.mode === 'shake') {
+			window.addEventListener("deviceorientation", function process(event) {
+        self.swipe =  event.beta
+        if( self.possibility.id === 0) {
+          if(self.swipe > 5) {
+            self.$emit('selectChoice', self.possibility)
+          }
+        }
+        else {
+          alert('ok')
+          if(self.swipe < -5) {
+            self.$emit('selectChoice', self.possibility)
+          }
+        }
+        
+			});
+		}
+		else {
+			this.activeMode = "click"
+		}
   },
    firebase: {
     arrayOfVote: db.ref('SuperComics/decision/choices/choices')

@@ -14,7 +14,8 @@
           momentum_id: momentum.id,
           id: id, 
           datas: possibility
-        }" 
+        }"
+        :mode= momentum.choiceType
         :key="id">
       </Choice>
     </div>
