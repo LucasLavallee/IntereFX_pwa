@@ -38,7 +38,7 @@ export default {
 		}
 	},
 	firebase: {
-		isReady: db.ref('SuperComics/isReady'),
+		isReady: db.ref('Kwan/isReady'),
 	},
 	watch: {
     isReady: {
@@ -58,6 +58,10 @@ export default {
 </script>
 
 <style scoped>
+	@font-face {
+		font-family: 'AvenirNP-Condensed';
+		src:  url('../../public/fonts/Avenir-Next-Pro-Condensed.ttf')
+	}
 	.buttonContainer {
 		display: flex;
 		align-items: center;
@@ -73,7 +77,7 @@ export default {
 		height: 40px;
 		border-radius: 20px;
 		margin-top: 20px;
-		background-color: #1C153B;
+		background-color: #000;
 	}
 
 	.button-container.unactive {
@@ -83,7 +87,7 @@ export default {
 		opacity: 1;
 	}
 	#value {
-		font-family: 'Bangers', cursive;
+		font-family: 'AvenirNP-Condensed';
 		color: #F9F9F9;
 		font-size: 2em
 	}

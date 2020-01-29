@@ -2,7 +2,7 @@
   <div class="lobby">
 	<div class="loading-container">
 		<div class="item">
-			<img id="loader" src="/img/CHARA_LOOP.gif"/>
+			<img id="loader" src="/img/loading.gif"/>
 		</div>
 		<h1 class="item">Chargement<span id="suspension">...</span></h1>
 	</div>
@@ -65,7 +65,7 @@ export default {
   },
   
   firebase: {
-    isReady: db.ref('SuperComics/isReady'),
+    isReady: db.ref('Kwan/isReady'),
   },
 
   watch: {
@@ -84,12 +84,19 @@ export default {
 </script>
 
 <style scoped>
+
+	@font-face {
+		font-family: 'AvenirNP-Condensed';
+		src:  url('../../public/fonts/Avenir-Next-Pro-Condensed.ttf')
+	}
 	h1 {
-		font-family: 'Bangers', cursive;
+		font-family: 'AvenirNP-Condensed';
 		font-size: 2em;
-		color: #F9F9F9;
+		color: #000;
 		/* text-shadow: 2px 4px #FFC700; */
-		text-align: center
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
 	}
 	.lobby {
 		display: flex;
@@ -108,7 +115,7 @@ export default {
 	}
 	#loader {
 		width: 100px;
-		padding-right: 10px;
+		padding-bottom: 10px;
 		transform: scaleX(-1);
 		/* animation: rotation 2s linear infinite; */
 	}

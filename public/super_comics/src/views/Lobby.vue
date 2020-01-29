@@ -45,23 +45,25 @@ export default {
   components: {
   },
   data() {
-	return {
-		currentState: 0,
-		isReady: false,
-		firstWatch: true, 
-		noSleep: null
-	}
-  },
+		return {
+			currentState: 0,
+			isReady: false,
+			firstWatch: true, 
+			noSleep: null,
+		}
+	},
+	methods: {
+	},
   mounted() {
-	this.noSleep = new NoSleep()
-	this.noSleep.enable()
-	
-	const self=this
-	setInterval(()=>{
-		self.currentState++
-		self.currentState= self.currentState%3
-	}
-	, 6000)
+		this.noSleep = new NoSleep()
+		this.noSleep.enable()
+
+		setInterval(()=>{
+			self.currentState++
+			self.currentState= self.currentState%3
+		}
+		, 6000)
+		
   },
   
   firebase: {

@@ -7,35 +7,66 @@
     <div class="videoContainer">
       <img :src="possibility.datas.video" alt="placeholder" class="video">
     </div>
-    
   </div>
 </template>
 
 <script>
+import db from '../../base'
 export default {
   name: 'Choice',
-  props:['possibility'],
+  props:['possibility', 'mode'],
   data() {
     return {
       isVideoLoaded: false,
-      video: null
+      video: null,
+      arrayOfVote: 0,
+      choiceName: null,
+      currentPercentageOfVote: 0,
+			swipe: 0,
     }
   },
   methods: {
     selectChoice(){
-      this.$emit('selectChoice', this.possibility)
-    },
-    checkLoad() {
-        if (this.video.readyState === 4) {
-          this.isVideoLoaded = true
-        } else {
-          setTimeout(this.checkLoad, 500);
-        }
+      if(this.activeMode === 'click')
+        this.$emit('selectChoice', this.possibility)
     }
   },
   mounted(){
-    this.video = document.querySelector('#video'  + this.possibility.momentum_id + this.possibility.id);
-    this.checkLoad();
+    const realId = this.possibility.id + 1
+    this.choiceName = 'choice' + realId
+    this.activeMode = this.mode
+    const self = this
+		if(window.DeviceMotionEvent && this.mode === 'shake') {
+			window.addEventListener("deviceorientation", function process(event) {
+        self.swipe =  event.beta
+        if( self.possibility.id === 0) {
+          if(self.swipe > 5) {
+            self.$emit('selectChoice', self.possibility)
+          }
+        }
+        else {
+          if(self.swipe < -5) {
+            self.$emit('selectChoice', self.possibility)
+          }
+        }
+        
+			});
+		}
+		else {
+			this.activeMode = "click"
+		}
+  },
+   firebase: {
+    arrayOfVote: db.ref('SuperComics/decision/choices/choices')
+  },
+  watch: {
+    arrayOfVote: {
+      handler() {
+        const totalVote = ((this.arrayOfVote['choice1'].length) + (this.arrayOfVote['choice2'].length))
+        const percentage = this.arrayOfVote[this.choiceName].length * 100 / totalVote
+        this.currentPercentageOfVote = percentage.toFixed(1)
+      }
+    },
   }
   
 }
@@ -61,6 +92,7 @@ export default {
     transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
     overflow: hidden;
     border-radius:30px;
+    position:relative;
   }
   .selected .videoContainer {
    border:3px solid #FFC700;
@@ -72,7 +104,19 @@ export default {
     display:none;
   }
   .selected .videoContainer {
-    height:95%;
+    height:90%;
+  }
+  .result {
+    position:absolute;
+    color:#FFC700;
+    top: 20px;
+    right: 30px;
+    font-size:18pt;
+    font-family: 'Bangers', cursive;
+  }
+  body {
+    perspective: 800px;
+    perspective-origin: 20px 70px;
   }
 
 </style>
