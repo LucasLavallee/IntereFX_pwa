@@ -59,8 +59,9 @@ export default {
 
       if (navigator.vibrate) {
       // vibration API supported
-      navigator.vibrate(1000)
+        window.navigator.vibrate(600)
       }
+      
       
       
       const self = this
@@ -79,7 +80,7 @@ export default {
       const self = this
       setTimeout(() => {  
         self.currentStepIndex = this.steps.cinema
-        if(self.momemtums.length > self.currentChoiceIndex + 2)
+        if(self.momemtums.length >= self.currentChoiceIndex + 1)
           self.currentChoiceIndex++
       }, 2000)
     },
@@ -115,7 +116,7 @@ export default {
     },
     isReady: {
       handler() {
-        !this.firstWatch.isReady && this.isReady.val === false ? router.push({name:'home'}) : this.firstWatch.isReady = false
+        !this.firstWatch.isReady && this.isReady.val === false ? router.replace({name:'home'}) : this.firstWatch.isReady = false
       }
     }
   },

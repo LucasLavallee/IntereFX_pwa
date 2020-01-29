@@ -5,6 +5,9 @@
       {{ possibility.datas.message }}
     </div>
     <div class="videoContainer">
+      <div class="name">
+        {{ possibility.datas.message }}
+      </div>
       <img :src="possibility.datas.video" alt="placeholder" class="video">
       <!--<div class="result">{{currentPercentageOfVote}}</div>-->
     </div>
@@ -94,6 +97,19 @@ export default {
     overflow: hidden;
     border-radius:30px;
     position:relative;
+  }
+  .videoContainer .name {
+    display:none;
+  }
+  .selected .videoContainer .name {
+    display:block;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    color:#FFC700;
+    font-size:22pt;
+    padding:10px;
+    font-family: 'Bangers', cursive;
   }
   .selected .videoContainer {
    border:3px solid #FFC700;
