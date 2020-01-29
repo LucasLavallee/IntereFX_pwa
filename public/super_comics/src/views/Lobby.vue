@@ -125,16 +125,19 @@ export default {
 	.tuto {
 		width: 60%;
 		margin: auto;
-		/* transform: translateY(-10px); */
-		animation: slideIn 3s ease-in;
-		animation-iteration-count: infinite;
-		animation-direction: alternate;
+		transform: translateY(10px);
+		animation: fade 3s ease-out infinite alternate, slideIn 1s ease-out forwards;
 	}
 
+@keyframes fade {
+	0% { opacity: 0; }
+	25% { opacity: 1; }
+	100% { opacity: 1; }
+}
+
 @keyframes slideIn {
-	0% { opacity: 0;}
-	25% { opacity: 1}
-	100% { opacity: 1}
+	0% { }
+	100% { transform: translateY(-5px); }
 }
 
 @keyframes display {
