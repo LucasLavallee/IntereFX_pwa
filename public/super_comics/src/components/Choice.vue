@@ -6,36 +6,46 @@
     </div>
     <div class="videoContainer">
       <img :src="possibility.datas.video" alt="placeholder" class="video">
+      <div class="result">{{ currentPercentageOfVote }}%</div>
     </div>
-    
   </div>
 </template>
 
 <script>
+import db from '../../base'
 export default {
   name: 'Choice',
   props:['possibility'],
   data() {
     return {
       isVideoLoaded: false,
-      video: null
+      video: null,
+      arrayOfVote: 0,
+      choiceName: null,
+      currentPercentageOfVote: 0
     }
   },
   methods: {
     selectChoice(){
       this.$emit('selectChoice', this.possibility)
-    },
-    checkLoad() {
-        if (this.video.readyState === 4) {
-          this.isVideoLoaded = true
-        } else {
-          setTimeout(this.checkLoad, 500);
-        }
     }
   },
   mounted(){
-    this.video = document.querySelector('#video'  + this.possibility.momentum_id + this.possibility.id);
-    this.checkLoad();
+    const realId = this.possibility.id + 1
+    this.choiceName = 'choice' + realId
+  },
+   firebase: {
+    arrayOfVote: db.ref('SuperComics/decision/choices/choices')
+  },
+  watch: {
+    arrayOfVote: {
+      handler() {
+        console.log(this.choiceName)
+        const totalVote = ((this.arrayOfVote['choice1'].length) + (this.arrayOfVote['choice2'].length))
+        const percentage = this.arrayOfVote[this.choiceName].length * 100 / totalVote
+        this.currentPercentageOfVote = percentage.toFixed(1)
+      }
+    },
   }
   
 }
@@ -61,6 +71,7 @@ export default {
     transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
     overflow: hidden;
     border-radius:30px;
+    position:relative;
   }
   .selected .videoContainer {
    border:3px solid #FFC700;
@@ -72,7 +83,15 @@ export default {
     display:none;
   }
   .selected .videoContainer {
-    height:95%;
+    height:90%;
+  }
+  .result {
+    position:absolute;
+    color:#FFC700;
+    top: 20px;
+    right: 30px;
+    font-size:18pt;
+    font-family: 'Bangers', cursive;
   }
 
 </style>
