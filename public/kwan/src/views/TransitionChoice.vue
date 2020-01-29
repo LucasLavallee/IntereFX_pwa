@@ -1,6 +1,6 @@
 
 <template>
-  <div id="transitionChoice">
+  <div id="transitionChoice" :class="infos.isTransitionIn ? 'animIn' : 'animOut'">
     <video autoplay muted loop playsInline class="videoTransition">
       <source :src="infos.video" type="video/mp4">
     </video>
@@ -32,23 +32,45 @@ export default {
 </script>
 
 <style>
+@font-face {
+		font-family: 'AvenirNP-Condensed';
+		src:  url('../../public/fonts/Avenir-Next-Pro-Condensed.ttf')
+	}
+
 @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+
+  @keyframes fadeIn {
+    from {
+      background-color: #000;
+    }
+    to {
+      background-color: #fff;
+    }
+  }
   #transitionChoice {
     height:100%;
     width:100%;
-    background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
     font-size:20pt;
   }
 
   .videoTransition {
     height:80%;
   }
+
+  .animIn {
+    background-color: #000; 
+    animation: fadeIn .5s .1s forwards;
+  }
+  .animOut {
+    background-color: #fff; 
+    animation: fadeIn .5s .1s reverse forwards;
+  }
   .transitionMessage {
     height:20%;
     display:flex;
     align-items: center;
     justify-content: center;
-    color: #FFC700;
-    font-family: 'Bangers', cursive;
+    color: #000;
+    font-family: 'AvenirNP-Condensed';
   }
 </style>

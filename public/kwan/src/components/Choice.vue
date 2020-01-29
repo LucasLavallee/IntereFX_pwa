@@ -1,9 +1,9 @@
 
 <template>
   <div class="choice" @click="selectChoice">
-    <div class="choiceNumber">
+    <!--<div class="choiceNumber">
       {{ possibility.datas.message }}
-    </div>
+    </div>-->
     <div class="videoContainer">
       <img :src="possibility.datas.video" alt="placeholder" class="video">
     </div>
@@ -60,10 +60,9 @@ export default {
     height:70%;
     transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
     overflow: hidden;
-    border-radius:30px;
   }
   .selected .videoContainer {
-   border:3px solid #FFC700;
+   border:3px solid #000;
   }
   .video {
     height:100%;

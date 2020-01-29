@@ -81,7 +81,7 @@ export default {
   #choiceSelector {
     height:100%;
     width:100%;
-    background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
+    background: #fff;
     position: relative;
   }
   .timerContainer {
@@ -90,14 +90,14 @@ export default {
     justify-content: center;
     height:10%;
     font-size:16pt;
-    background:rgb(28, 21, 59);
+    background:#000;
     color:white;
     font-family: 'Bangers', cursive;
     position: relative;
   }
   .timebar{
-    height: 100%;
-    background-color: #FFC700;
+    height: 70%;
+    background-color: #fff;
     position: absolute;
     left: 0px;
   }
