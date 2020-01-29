@@ -3,7 +3,7 @@
 		<div @click="test" id="button-start" :class="isReady.val ? 'button-container unactive' : 'button-container active'"	>
 			<span id="value">Start</span>
 		</div>
-		<p id="openSession" v-if="isReady.val">Session en cours...</p>
+		<p id="openSession" v-if="isReady.val">Recherche d'une session...</p>
 	</div>
 </template>
 
