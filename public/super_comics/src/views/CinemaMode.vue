@@ -54,7 +54,7 @@ export default {
     },
     handleDecisions() {
       this.currentStepIndex = this.steps.before
-      //navigator.vibrate(1000)
+      navigator.vibrate(1000)
       
       const self = this
       setTimeout(() => {
