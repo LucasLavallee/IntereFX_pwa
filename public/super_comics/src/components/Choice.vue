@@ -62,7 +62,6 @@ export default {
   watch: {
     arrayOfVote: {
       handler() {
-        console.log(this.choiceName)
         const totalVote = ((this.arrayOfVote['choice1'].length) + (this.arrayOfVote['choice2'].length))
         const percentage = this.arrayOfVote[this.choiceName].length * 100 / totalVote
         this.currentPercentageOfVote = percentage.toFixed(1)
@@ -114,6 +113,10 @@ export default {
     right: 30px;
     font-size:18pt;
     font-family: 'Bangers', cursive;
+  }
+  body {
+    perspective: 800px;
+    perspective-origin: 20px 70px;
   }
 
 </style>

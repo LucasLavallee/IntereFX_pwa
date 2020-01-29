@@ -18,6 +18,7 @@
         :mode= momentum.choiceType
         :key="id">
       </Choice>
+      <img src="/img/icons/smartphone.png" class="uiIcon">
     </div>
   </div>
 </template>
@@ -107,6 +108,7 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    position:relative;
   }
   .classic, .selected {
      transition: all 0.2s cubic-bezier(.08,.92,.8,.99);
@@ -117,5 +119,23 @@ export default {
   .selected {
    
     width:150%;
+  }
+
+   .uiIcon {
+    position:absolute;
+    bottom: 10px;
+    left:50%;
+    transform: translateX(-50%);
+    transform: rotateZ(90deg);
+    animation: rotate 1s infinite alternate ease;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate3d(0, 1,0, 30deg)
+    }
+    to {
+      transform:rotate3d(0, -1,0, 30deg)
+    }
   }
 </style>
