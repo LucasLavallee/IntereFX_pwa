@@ -30,7 +30,9 @@ export default {
     }
   },
   mounted() {
-    window.navigator.vibrate(600)
+    if (navigator.vibrate) {
+      window.navigator.vibrate(600)
+    }
   },
 }
 </script>
