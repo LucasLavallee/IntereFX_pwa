@@ -143,6 +143,10 @@ p{
   }
 }
 
+#rotation {
+  animation: rotateBounce .7s alternate infinite
+}
+
 .logo {
 	width: 40px;
 }
@@ -163,4 +167,14 @@ p{
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+@keyframes rotateBounce {
+  0% {
+    transform: rotateZ(0deg)
+  }
+  100% {
+    transform: rotateZ(30deg)
+  }
+}
+
 </style>
