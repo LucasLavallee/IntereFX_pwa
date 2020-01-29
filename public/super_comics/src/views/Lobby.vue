@@ -4,13 +4,13 @@
 		<div class="item">
 			<img id="loader" src="/img/CHARA_LOOP.gif"/>
 		</div>
-		<h1 class="item">Chargement<span id="suspension">..</span></h1>
+		<h1 class="item">Chargement<span id="suspension">...</span></h1>
 	</div>
 	<div class="tuto-container">
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
 			<div v-show="currentState=== 0" class="tuto tuto-out">
 			<p>Bienvenue dans cette expérience interactive. 
-			Pendant le visionnage, vous serez amené à prendre des décisions qui influeront sur le cours
+			Pendant le visionnage, vous serez amenés à prendre des décisions qui influeront sur le cours
 			de l'histoire.
 			</p>
 			</div>
@@ -18,14 +18,14 @@
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
 			<div v-show="currentState=== 1" class="tuto tuto-out">
 				<img id="hand" class="logo" src="/img/hand.png"/>
-				<p>Lorsque vous y serez invité, selectionnez l'option de votre choix en cliquant dessus.
+				<p>Lorsque vous y serez invités, selectionnez l'option de votre choix en cliquant dessus.
 				</p>
 			</div>
 		<!-- </transition> -->
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
 			<div v-show="currentState=== 2" class="tuto tuto-out">
 				<img id="speed" class="logo" src="/img/speed.png"/>
-				<p>Attention, vous n'avez que très peu de temps pour choisir.
+				<p>Attention, vous n'aurez que très peu de temps pour choisir.
 				</p>
 			</div>
 		<!-- </transition> -->

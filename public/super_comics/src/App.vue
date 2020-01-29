@@ -66,7 +66,6 @@ html {
 body {
   line-height: 1;
   height: 100%;
-  background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
   overflow: hidden;
 }
 ol, ul {
@@ -104,6 +103,7 @@ p{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
 }
 
 #app-landscape {

@@ -1,6 +1,9 @@
 <template>
-	<div @click="test" id="button-start" class="button-container">
-		<span id="value">Start</span>
+	<div>
+		<div @click="test" id="button-start" :class="isReady.val ? 'button-container unactive' : 'button-container active'"	>
+			<span id="value">Start</span>
+		</div>
+		<p id="openSession" v-if="isReady.val">Session en cours...</p>
 	</div>
 </template>
 
@@ -14,6 +17,19 @@ export default {
 	methods: {
 		test(){
 			router.push('lobby')
+			this.openFullscreen()
+		},
+		openFullscreen: () => {
+			const elem = document.body
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if (elem.mozRequestFullScreen) { /* Firefox */
+				elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+				elem.webkitRequestFullscreen();
+			} else if (elem.msRequestFullscreen) { /* IE/Edge */
+				elem.msRequestFullscreen();
+			}
 		}
 	},
 	data() {
@@ -46,17 +62,33 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: #1C153B;
 		padding: 10px 20px;
 		width: 130px;
 		height: 40px;
 		border-radius: 20px;
-		margin-top: 20px
+		margin-top: 20px;
+		background-color: #1C153B;
+	}
+
+	.button-container.unactive {
+		opacity: 0.4;
+	}
+	.button-container.active {
+		opacity: 1;
 	}
 	#value {
 		font-family: 'Bangers', cursive;
 		color: #F9F9F9;
 		font-size: 2em
+	}
+	#openSession{
+		margin-top: 15px;
+		animation: display 1.1s infinite alternate;
+	}
+
+	@keyframes display {
+		0% { opacity: 0;}
+		100% { opacity: 1}
 	}
 </style>
 
