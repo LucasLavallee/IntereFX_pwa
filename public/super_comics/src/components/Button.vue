@@ -16,7 +16,7 @@ export default {
 	name: 'Button',
 	methods: {
 		test(){
-			router.push('lobby')
+			router.replace('lobby')
 			this.openFullscreen()
 		},
 		openFullscreen: () => {

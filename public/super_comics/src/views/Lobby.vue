@@ -72,7 +72,7 @@ export default {
     isReady: {
       handler() {
 		if(!this.firstWatch && this.isReady.val) {
-			router.push({name:'cinemaMode'})
+			router.replace({name:'cinemaMode'})
 		}
 		else {
 			this.firstWatch = false
