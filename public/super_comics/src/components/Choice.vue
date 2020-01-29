@@ -45,7 +45,6 @@ export default {
           }
         }
         else {
-          alert('ok')
           if(self.swipe < -5) {
             self.$emit('selectChoice', self.possibility)
           }
