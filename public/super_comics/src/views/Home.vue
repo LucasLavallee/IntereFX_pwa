@@ -29,6 +29,9 @@ export default {
      router.replace('choiceSelector')
     }
   },
+  mounted() {
+    window.navigator.vibrate(600)
+  },
 }
 </script>
 
