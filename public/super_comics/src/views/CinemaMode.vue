@@ -54,7 +54,14 @@ export default {
     },
     handleDecisions() {
       this.currentStepIndex = this.steps.before
+      // enable vibration support
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+      if (navigator.vibrate) {
+      // vibration API supported
       navigator.vibrate(1000)
+      }
+      
       
       const self = this
       setTimeout(() => {
