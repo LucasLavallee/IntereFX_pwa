@@ -6,12 +6,12 @@
             "videoOut": "/video/test1.mp4",
             "possibilities": [
                 {
-                    "video": "/video/Bras.gif",
-                    "message": "Bras"
+                    "video": "/img/ChoiceJump.jpg",
+                    "message": "Sauter"
                 },
                 {
-                    "video": "/video/Tentacule.gif",
-                    "message": "Tentacule"
+                    "video": "/img/ChoiceRight.jpg",
+                    "message": "Courir"
                 }
             ],
             "choiceType": "click"
@@ -23,11 +23,11 @@
             "possibilities": [
                 {
                     "video": "/video/Bras.gif",
-                    "message": "Autre lol"
+                    "message": "Bras"
                 },
                 {
                     "video": "/video/Tentacule.gif",
-                    "message": "Visu pls"
+                    "message": "Tentacule"
                 }
             ],
             "choiceType": "click"
