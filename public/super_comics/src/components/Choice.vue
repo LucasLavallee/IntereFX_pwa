@@ -6,6 +6,7 @@
     </div>
     <div class="videoContainer">
       <img :src="possibility.datas.video" alt="placeholder" class="video">
+      <div class="result">{{currentPercentageOfVote}}</div>
     </div>
   </div>
 </template>
