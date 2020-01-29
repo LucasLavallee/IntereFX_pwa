@@ -1,6 +1,8 @@
 
 <template>
   <div class="home">
+    <!-- <img class="image" id="subtitle_home" src="/img/TITLE_white.png"/> -->
+    <!-- <img class="image" id="title_home" src="/img/TITLE_black.png"/> -->
     <h1>Super Comics </h1>
     <Button/>
     <!-- {{next_choice}} -->
@@ -46,4 +48,16 @@ export default {
     justify-content: center;
     align-items: center;
   }
+  .image {
+    width: 30%;
+  }
+  #title_home {
+    position: absolute;
+    top: 0;
+  }
+  #subtitle_home{
+    position: relative;
+    /* top:0 */
+  }
+  
 </style>

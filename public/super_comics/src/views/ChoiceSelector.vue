@@ -18,7 +18,7 @@
         :mode= momentum.choiceType
         :key="id">
       </Choice>
-      <img src="/img/icons/smartphone.png" class="uiIcon">
+      <img v-if="momentum.choiceType === 'shake'" src="/img/icons/smartphone.png" class="uiIcon">
     </div>
   </div>
 </template>
@@ -121,21 +121,21 @@ export default {
     width:150%;
   }
 
-   .uiIcon {
+  .uiIcon {
     position:absolute;
     bottom: 10px;
     left:50%;
-    transform: translateX(-50%);
+    transform-origin: 32px;
     transform: rotateZ(90deg);
-    animation: rotate 1s infinite alternate ease;
+    animation: rotate 1.5s infinite alternate ease;
   }
 
   @keyframes rotate {
     from {
-      transform: rotate3d(0, 1,0, 30deg)
+      transform: rotate3d(0, 1,0, 30deg) translateX(-50%)
     }
     to {
-      transform:rotate3d(0, -1,0, 30deg)
+      transform:rotate3d(0, -1,0, 30deg) translateX(-50%)
     }
   }
 </style>

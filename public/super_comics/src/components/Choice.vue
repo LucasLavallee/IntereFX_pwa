@@ -114,9 +114,5 @@ export default {
     font-size:18pt;
     font-family: 'Bangers', cursive;
   }
-  body {
-    perspective: 800px;
-    perspective-origin: 20px 70px;
-  }
 
 </style>

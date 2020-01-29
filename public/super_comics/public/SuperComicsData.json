@@ -14,7 +14,7 @@
                     "message": "Tentacule"
                 }
             ],
-            "choiceType": "shake"
+            "choiceType": "click"
         },
         {
             "id": 1,
@@ -30,7 +30,7 @@
                     "message": "Visu pls"
                 }
             ],
-            "choiceType": "shake"
+            "choiceType": "click"
         }
     ]
 }
