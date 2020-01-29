@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="app-portrait">
-      <h1 class="item" id=title>Super Comics </h1>
+      <h1 class="item" id=title>Kwan</h1>
       <p class="item">Pour profiter pleinement de l'expérience, veuillez mettre votre téléphone en mode paysage.</p>
       <img id="rotation" class="logo item" src="/img/rotation.png"/>
     </div>
@@ -33,6 +33,11 @@ export default {
    License: none (public domain)
 */
 
+@font-face {
+  font-family: 'AvenirNP-Condensed';
+  src:  url('../public/fonts/Avenir-Next-Pro-Condensed.ttf')
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -52,7 +57,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
   vertical-align: baseline;
-  color: #F9F9F9;
+  color: #000;
   font-family: 'Montserrat', 'sans-serif';
 }
 /* HTML5 display-role reset for older browsers */
@@ -95,7 +100,6 @@ p{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   height: 100%;
   width: 100%;
   /* position: fixed; */
@@ -103,7 +107,7 @@ p{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #1CCFAF -47.73%, #24676C 12.28%, #2B0F34 86.15%);
+  background: #fff;
 }
 
 #app-landscape {
@@ -119,10 +123,8 @@ p{
     padding: 0 20px;
 }
 #title {
-    font-family: 'Bangers', cursive;
+    font-family: 'AvenirNP-Condensed';
     font-size: 5em;
-    color: #F9F9F9;
-    text-shadow: 2px 4px #FFC700;
     text-align: center;
 }
 

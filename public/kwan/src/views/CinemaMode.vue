@@ -1,7 +1,7 @@
 
 <template>
   <div id="cinemaMode">
-    <img id="charaBehind" v-show="steps.cinema === currentStepIndex" src="/img/CHARA_BEHIND.png"/>
+    <img id="charaBehind" v-show="steps.cinema === currentStepIndex" src="/img/loadingBlack.gif"/>
     <TransitionChoice v-show="steps.before === currentStepIndex" :infos="{isTransitionIn:true, video: momemtums[currentChoiceIndex+1].videoIn, hasVoted: null}"/>
     <ChoiceSelector @selectMode="changeSelection" v-for="(momentum, index) in momemtums" v-show="isDecisionTime(index)"  :momentum="momentum" :momentumId="index" :key="index" :vote="vote" :isOpen="isDecisionTime(index)"/>
     <TransitionChoice v-show="steps.after === currentStepIndex" :infos="{isTransitionIn:false, video: momemtums[currentChoiceIndex+1].videoOut, hasVoted: this.vote}"/>
@@ -62,7 +62,7 @@ export default {
       }, 2000)
     },
     sendVote() {
-       db.ref("/SuperComics/decision/choices/choices/choice" + (this.vote) )
+       db.ref("/Kwan/decision/choices/choices/choice" + (this.vote) )
       .push(0)
       .then(() => {
       })
@@ -88,9 +88,9 @@ export default {
     this.noSleep.enable()
   },
   firebase: {
-    decisionClosed: db.ref('SuperComics/decision/decisionClosed'),
-    next_choice: db.ref('SuperComics/next_choice'),
-    isReady: db.ref('SuperComics/isReady'),
+    decisionClosed: db.ref('Kwan/decision/decisionClosed'),
+    next_choice: db.ref('Kwan/next_choice'),
+    isReady: db.ref('Kwan/isReady'),
   },
 
   watch: {
@@ -122,11 +122,11 @@ export default {
     background:rgb(0,0,0);
   }
   #charaBehind {
-    height: 100%;
-    max-height: 400px;
+    max-height: 200px;
     position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%)
+    top: 50%;
+    bottom: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0.5;
   }
 </style>

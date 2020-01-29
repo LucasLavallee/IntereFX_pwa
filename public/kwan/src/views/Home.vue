@@ -1,9 +1,8 @@
 
 <template>
   <div class="home">
-    <h1>Super Comics </h1>
+    <h1>Kwan</h1>
     <Button/>
-    <!-- {{next_choice}} -->
   </div>
 </template>
 
@@ -32,10 +31,8 @@ export default {
 
 <style scoped>
   h1 {
-    font-family: 'Bangers', cursive;
+    font-family: 'AvenirNP-Condensed';
     font-size: 5em;
-    color: #F9F9F9;
-    text-shadow: 2px 4px #FFC700;
     text-align: center
   }
   .home {
