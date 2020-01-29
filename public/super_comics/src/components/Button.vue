@@ -1,9 +1,9 @@
 <template>
-	<div>
+	<div class="buttonContainer">
 		<div @click="test" id="button-start" :class="isReady.val ? 'button-container unactive' : 'button-container active'"	>
 			<span id="value">Start</span>
 		</div>
-		<p id="openSession" v-if="isReady.val">Recherche d'une session...</p>
+		<span id="openSession" v-if="isReady.val">En attente d'une session...</span>
 	</div>
 </template>
 
@@ -58,6 +58,12 @@ export default {
 </script>
 
 <style scoped>
+	.buttonContainer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
 	.button-container {
 		display: flex;
 		justify-content: center;
