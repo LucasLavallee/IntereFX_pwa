@@ -14,16 +14,21 @@
 			de l'histoire.
 			</p>
 			</div>
+			<div v-show="currentState=== 1" class="tuto tuto-out">
+				<img id="hand" class="logo" src="/img/info_smartphone.png"/>
+				<p>Soyez attentif: lorsque ce logo apparait, il faudra aller sur votre téléphone.
+				</p>
+			</div>
 		<!-- </transition>	 -->
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
-			<div v-show="currentState=== 1" class="tuto tuto-out">
+			<div v-show="currentState=== 2" class="tuto tuto-out">
 				<img id="hand" class="logo" src="/img/hand.png"/>
-				<p>Lorsque vous y serez invités, selectionnez l'option de votre choix en cliquant dessus.
+				<p>Vous devrez ensuite faire un choix et le selectionner en cliquant dessus.
 				</p>
 			</div>
 		<!-- </transition> -->
 		<!-- <transition name="fade-in-out" mode="out-in"> -->
-			<div v-show="currentState=== 2" class="tuto tuto-out">
+			<div v-show="currentState=== 3" class="tuto tuto-out">
 				<img id="speed" class="logo" src="/img/speed.png"/>
 				<p>Attention, vous n'aurez que très peu de temps pour choisir.
 				</p>
@@ -57,10 +62,10 @@ export default {
   mounted() {
 		this.noSleep = new NoSleep()
 		this.noSleep.enable()
-
+		const self = this
 		setInterval(()=>{
 			self.currentState++
-			self.currentState= self.currentState%3
+			self.currentState= self.currentState%4
 		}
 		, 6000)
 		
